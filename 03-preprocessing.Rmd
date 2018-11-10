@@ -1,0 +1,43 @@
+# Preprocessing
+
+Splithalf requires that the input dataset has already undergone preprocessing (e.g. removal of error trials, RT trimming, and participants with high error rates). Splithalf should therefore be used with the same data that will be used to calculate summary scores and outcome indices. 
+In my earlier attempts to make splithalf as useful as possible I added a number of user-inputted variables that helped remove participants and trim RTs. This also resulted in far to many input variables and potential confusion.
+
+You might need to do a little pre-processing if you have not saved your processing steps. Here is a code snippet that will work (each line notes what the code is doing after the hash).
+You will need to change the numbers to match your data. This code could be briefer, however has been structured like this for ease of use
+Note == indicates ‘is equal to’, :: indicates that the function uses the package indicated, in the first case the **dplyr** package [@R-dplyr]
+
+
+
+```{r eval = FALSE}
+dataset %>%    
+filter(accuracy == 1) %>%       # keeps only trials in which participants made an accurate response
+filter(RT >= 100, RT <= 2000)  %>%   # removes RTs less than 100ms and greater than 2000ms
+filter(participant != c(“p23”, “p45”)    # removes participants “p23” and “p45”
+```
+
+
+If following rt trims you also trimmed by SD, use the following as well. Note that this is for two standard deviations from the mean, within each participant, and within each condition and trialtype.
+
+```{r eval = FALSE}
+dataset %>%    
+    dplyr::group_by(participant, condition, compare) %>%
+    dplyr::mutate(low =  mean(RT) - (2 * sd(RT)),
+                  high = mean(RT) + (2 * sd(RT))) %>%
+    dplyr::filter(RT >= low & RT <= high)
+```
+
+If you want to save yourself effort in running splithalf, you could also rename your variable (column) names to the function defaults using the following
+
+```{r eval = FALSE}
+dplyr::rename(dataset,
+              RT = "latency",
+              condition = FALSE,
+              participant = "subject",
+              correct = "correct",
+              trialnum = "trialnum",
+              compare = "congruency")
+```
+
+
+

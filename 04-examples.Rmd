@@ -1,0 +1,40 @@
+# Examples
+
+This is what you are really here for, isn't it?
+
+I am assuming that you have preprocessed your data to remove any outliers, use any cutoffs etc. These functions should be used on the data that you will then create your scores from, i.e. there should not be further processing to do before you run any of these. If there is, then these internal consistency reliability estimates will not reflect the reliability of the outcome measurements you actually analyse. 
+
+
+## Questions to ask before running splithalf
+
+These questions should feed into what settings are appropriate for your need, and are aimed to make the _splithalf_ function easy to use. 
+
+1. What is the type of data you have? 
+
+Are you interested in response times, or accuracy rates?
+
+
+2. How is your outcome score calculated?
+
+
+3. Which method would you like to use to estimate (split-half) reliability?
+
+A super common way is to split the data into odd and even trials. Another is to split by the first half and second half of the trials. Both approaches are implemented in the _splithalf_ funciton. However, 
+
+
+## The example dataset
+
+```{r}
+
+
+```
+
+
+## Difference scores
+
+This is by far the most common outcome measure I have come across
+
+
+## Average scores
+
+## Difference-of-difference scores

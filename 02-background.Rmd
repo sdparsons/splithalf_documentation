@@ -1,0 +1,14 @@
+# Background
+
+
+## Why should I estimate the reliabilty of my task measurement?
+
+
+
+## Why did I develop this in the first place?
+
+
+
+## How does _splithalf_ work?
+
+The permutation approach in _splithalf_ is actually rather simple. Over many repetitions (or permutations), the data is split in half and outcome scores are calculated for each half. For each repetion, the correlation coefficient between each half is calculated. Finally, the average of these correlations is taken as the final estimate of reliability. 95% percentiles are also taken from the distribution of estimates to give a picture of the spread of reliability estimates. 

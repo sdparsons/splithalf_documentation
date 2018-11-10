@@ -1,0 +1,6 @@
+# Important considerations
+
+## how many permutations?
+
+
+## how fast is _splithalf_?
