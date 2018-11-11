@@ -24,6 +24,15 @@ install.packages("splithalf")
 # devtools::install_github("sdparsons/splithalf")
 ```
 
+also note that the package requires the following; _tidyr_, _dplyr_, _Rcpp_, _robustbase_. You can load them with the following
+
+```{r eval = FALSE}
+library("tidyr")
+library("dplyr")
+library("Rcpp")
+library("robustbase")
+```
+
 
 ## Version note
 

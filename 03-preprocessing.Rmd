@@ -1,11 +1,14 @@
 # Preprocessing
 
 Splithalf requires that the input dataset has already undergone preprocessing (e.g. removal of error trials, RT trimming, and participants with high error rates). Splithalf should therefore be used with the same data that will be used to calculate summary scores and outcome indices. 
+
 In my earlier attempts to make splithalf as useful as possible I added a number of user-inputted variables that helped remove participants and trim RTs. This also resulted in far to many input variables and potential confusion.
 
-You might need to do a little pre-processing if you have not saved your processing steps. Here is a code snippet that will work (each line notes what the code is doing after the hash).
-You will need to change the numbers to match your data. This code could be briefer, however has been structured like this for ease of use
-Note == indicates ‘is equal to’, :: indicates that the function uses the package indicated, in the first case the **dplyr** package [@R-dplyr]
+You might need to do a little pre-processing if you have not saved your processing steps. Here is a code snippet that will work (each line includes a note about what the code is doing after the hash).
+
+You will need to change the numbers to match your data. This code could be briefer, however has been structured like this for ease of use.
+
+Note == indicates ‘is equal to’, :: indicates that the function uses the package indicated, in the first case the **dplyr** package [@R-dplyr].
 
 
 
