@@ -49,7 +49,7 @@ This is by far the most common outcome measure I have come across, so lets start
 
 Our data will be analysed so that we have two 'bias' or 'difference score' outcomes. So, within each block, we will take the average RT in congruent trials and subtract the average RT in incongruent trials. Calculating the final scores for each participant and for each block separately might look a bit like this
 
-```{r comment = NA}
+```{r comment = NA, echo = FALSE}
 library("tidyverse")
 
 sim_data %>%
