@@ -18,7 +18,7 @@ Knowing this, you can set _outcome_ = "RT", or _outcome_ = "accuracy"
 
 2. **How is your outcome score calculated?**
 
-Say that your response time based task has two trial types; "incongruent" and "congruent". When you analyse your data will you use the average RT in each trial type, or will you create a difference score (or bias) by e.g. subtracting the average RT in congruent trials from the average RT in incongruent trials. The first I call "average" and the 
+Say that your response time based task has two trial types; "incongruent" and "congruent". When you analyse your data will you use the average RT in each trial type, or will you create a difference score (or bias) by e.g. subtracting the average RT in congruent trials from the average RT in incongruent trials. The first I call "average" and the second I call "difference". 
 
 
 3. **Which method would you like to use to estimate (split-half) reliability?**
