@@ -1,0 +1,8 @@
+# Wish list
+
+The biggest task on my wishlist was to combine the six or so functions that formed earlier versions of the splithalf package into a single, unified, function. This I have achieved, so in no particular order I have some things I still want to achieve with this package in future versions. If you have any more, please contact me and I will add them to my list
+
+* adding other outcome measures / scores. For example, signal detection indices like d'.
+* prettier output
+    * including plotting the distribution of split-half reliability estimates. I think that could be a cool tool to visualise the date
+* multilevel approaches to estimating reliability - though this would deviate from splithalf somewhat

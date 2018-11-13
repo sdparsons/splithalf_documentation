@@ -13,6 +13,8 @@ These questions should feed into what settings are appropriate for your need, an
 
 Are you interested in response times, or accuracy rates?
 
+Knowing this, you can set _outcome_ = "RT", or _outcome_ = "accuracy"
+
 
 2. **How is your outcome score calculated?**
 
@@ -49,7 +51,7 @@ This is by far the most common outcome measure I have come across, so lets start
 
 Our data will be analysed so that we have two 'bias' or 'difference score' outcomes. So, within each block, we will take the average RT in congruent trials and subtract the average RT in incongruent trials. Calculating the final scores for each participant and for each block separately might look a bit like this
 
-```{r comment = NA, echo = FALSE}
+```{r comment = NA, echo = FALSE, message = FALSE}
 library("tidyverse")
 
 sim_data %>%

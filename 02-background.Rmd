@@ -5,10 +5,14 @@
 
 
 
-## Why did I develop this in the first place?
+## Why did I develop this package in the first place?
 
+Long story short-ish. I had some dot-probe attention bias data pre- and post- an attention bias modification procedure. In an exploratory analysis the post-training bias, but not the pre-training bias, was associated with self-report measures at follow-up. I think on a whim, we looked at how reliable the measures were pre/post and the post-training measure was much more reliable (~ .7) than the pre-training bias measure (~ .4). This led me down the road of wanting to understand reliability; what it 'means', how it impacts our results, the interesting reliability-power relationship, and so on. It also led me to the realisation (shared with many others), that we should estimate and report the reliability of our measures as standard practice. That has become my quest (albeit, it's not what I am actualy paid to do), taking two main forms.
 
+1. I wrote a paper with my DPhil supervisors [@parsons_kruijt_fox_2018], that I hope will be out in AMPPS soon (after revisions); the message being that we should adopt reporting reliabilty as a standard practice. 
+
+2. I developed the _splithalf_ package with the aim to provide an easy to use tool to estimate internal consistency of bias measures (difference scores) drawn from cognitive tasks. 
 
 ## How does _splithalf_ work?
 
-The permutation approach in _splithalf_ is actually rather simple. Over many repetitions (or permutations), the data is split in half and outcome scores are calculated for each half. For each repetion, the correlation coefficient between each half is calculated. Finally, the average of these correlations is taken as the final estimate of reliability. 95% percentiles are also taken from the distribution of estimates to give a picture of the spread of reliability estimates. 
+The permutation approach in _splithalf_ is actually rather simple. Over many repetitions (or permutations), the data is split in half and outcome scores are calculated for each half. For each repetion, the correlation coefficient between each half is calculated. Finally, the average of these correlations is taken as the final estimate of reliability. 95% percentiles are also taken from the distribution of estimates to give a picture of the spread of reliability estimates.^[You can also use the package to estimate reliability by splitting the data into odd and even trials, or into the first and last half of trials. In all honesty I'd rather just remove these as it is not the actual purpose of the package. But, it works, and maybe it would be useful to somebody] 
