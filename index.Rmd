@@ -1,5 +1,5 @@
 --- 
-title: "splithalf_documentation"
+title: "splithalf package documentation"
 author: "Sam Parsons"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
@@ -52,6 +52,7 @@ If (eventually) this documentation turns into a publication, this reference will
 
 
 ## User feedback
+
 Developing the splithalf package is a labour of love (and, occasionally, burning hatred). If you have any suggestions for improvement, additional functionality, or anything else, please contact me or raise an issue on github. Likewise, if you are having trouble using the package (e.g. scream fits at your computer screen – we’ve all been there) do contact me and I will do my best to help as quickly as possible. These kind of help requests are super welcome. In fact, the package has seen several increases in performance and usability due to people asking for help. 
 
 

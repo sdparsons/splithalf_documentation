@@ -3,7 +3,7 @@
 
 ## Why should I estimate the reliabilty of my task measurement?
 
-
+For my full argument, see ou preprint [@parsons_kruijt_fox_2018]. In short, the psychometric properties of our measurements are important and should be taken into consideration when conducting our analyses and interpreting our results. I think it should be standard practice to estimate and report reliability of our tasks. To not do so renders us incapable of knowing how much confidence we can place in results. If the replication crisis was a big deal, the measurement crisis has the potential to be as if not more catastrophic. 
 
 ## Why did I develop this package in the first place?
 

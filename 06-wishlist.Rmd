@@ -6,3 +6,5 @@ The biggest task on my wishlist was to combine the six or so functions that form
 * prettier output
     * including plotting the distribution of split-half reliability estimates. I think that could be a cool tool to visualise the date
 * multilevel approaches to estimating reliability - though this would deviate from splithalf somewhat
+* error tracking
+    * in testing the function, having little data for one participant, e.g. only two trials in one condition, leads to errors gone wild. So, I'd like to add some checking functionality, perhaps as a separate _splithalf-checker_ function in the package. 

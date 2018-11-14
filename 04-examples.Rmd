@@ -26,7 +26,7 @@ Say that your response time based task has two trial types; "incongruent" and "c
 A super common way is to split the data into odd and even trials. Another is to split by the first half and second half of the trials. Both approaches are implemented in the _splithalf_ funciton. However, I believe that the permutation splithalf approach is the way forward (and it was the reason why this package was developed, so please use it).
 
 
-## The example dataset
+## Our example dataset
 
 For this quick example, we will simulate some data. Lets say we have 60 participants, who each complete a task with two blocks (A and B) of 80 trials. Trials are also evenly distributed between "congruent" and "incongruent" trials. For each trial we have RT data, and are assuming that participants were accurate in all trials. 
 
@@ -66,7 +66,7 @@ sim_data %>%
 ok, lets see how reliable our A and B outcome scores ("bias") are.
 
 
-```{r message = FALSE, comment = NA, results = 'hide'}
+```{r message = FALSE, comment = NA, results = 'hide', warning = FALSE}
 library("splithalf")
 
 difference <- splithalf(data = sim_data,
@@ -92,17 +92,22 @@ difference
 
 ```
 
-### Reading the output
 
-Unsurprisingly, our simlated random data does not yield internally consistant measurements. 
+### Reading and reporting the output
 
-### Reporting the output
+The _splithalf_ output gives estimates separately for each condition defined (if no condition is defined, the function assumes that you have only a single condition, which it will call "all" to represent that all trials were included). 
 
-Ideally, report everything. I have included 95% percentiles of the estimates to give a picture of the spread of internal consistency estimates. Also included is the spearman-brown corrected estimates, which take into account that the estimates are drawn from half the trials that they could have been. Negative reliabilities are near uninterpretable and the spearman-brown formula is not useful in this case. For comparibility between studies I recommend reporting both the raw and the corrected estimates. Something like the following should be sufficient. 
+The second column (n) gives the number of participants analysed. If, for some reason one participant has too few trials to analyse, or did not complete one condition, this will be reflected here. I suggest you compare this n to your expected n to check that everything is running correctly. If the ns dont match, we have a problem. More likely, it will throw an error, but useful to know. 
 
-We estimated the internal consitency of bias A and B using a permutation-based splithalf approach [@R-splithalf] with 5000 random splits. The splithalf internal consistency of bias A was r = `r difference[1,3]`, 95%PI [`r difference[1,4]`,`r difference[1,5]`] (Spearman-Brown corrected estimates were r~SB~ = `r difference[1,6]`, 95%PI [`r difference[1,7]`,`r difference[1,8]`])
+Next are the estimates; the splithalf column and the associated 95% percentile intervals, and the Spearman-Brown corrected estimate with its own percentile intervals. Unsurprisingly, our simlated random data does not yield internally consistant measurements. 
 
+*What should I report?* Ideally, report everything. I have included 95% percentiles of the estimates to give a picture of the spread of internal consistency estimates. Also included is the spearman-brown corrected estimates, which take into account that the estimates are drawn from half the trials that they could have been. Negative reliabilities are near uninterpretable and the spearman-brown formula is not useful in this case. For comparibility between studies I recommend reporting both the raw and the corrected estimates. Something like the following should be sufficient; 
 
+> We estimated the internal consitency of bias A and B using a permutation-based splithalf approach [@R-splithalf] with 5000 random splits. The splithalf internal consistency of bias A was _r_ = `r difference[1,3]`, 95%PI [`r difference[1,4]`,`r difference[1,5]`] (Spearman-Brown corrected estimates were _r_~SB~ = `r difference[1,6]`, 95%PI [`r difference[1,7]`,`r difference[1,8]`]). 
+>
+> --- Me, reporting reliability, just now
+
+Simples. I hope :)
 
 
 ## Average scores
@@ -144,4 +149,31 @@ BiasB = incongruent_B - congruent_B
 
 Outcome = BiasB - BiasA
 
+In our function, we specify this very similarly as in the difference score example. The only change will be changing the score to "difference_of_difference" (largely because I could not think of a better name to use). Note that we will keep the condition list consisting of A and B. But, specifying that we are interested in the difference of differences will lead the function to calculate the outcome scores apropriately. 
 
+```{r message = FALSE, comment = NA, results = 'hide'}
+
+diff_of_diff <- splithalf(data = sim_data,
+                        outcome = "RT",
+                        score = "difference_of_difference",
+                        conditionlist = c("A", "B"),
+                        halftype = "random",
+                        permutations = 5000,
+                        var.RT = "RT",
+                        var.condition = "block_name",
+                        var.participant = "participant_number",
+                        var.trialnum = "trial_number",
+                        var.compare = "trial_type",
+                        compare1 = "congruent",
+                        compare2 = "incongruent",
+                        average = "mean")
+
+
+```
+
+```{r echo = FALSE, comment = NA}
+diff_of_diff
+
+```
+
+I do not forsee the difference_of_difference option being used often, but I will continue to maintain it.
