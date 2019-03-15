@@ -45,8 +45,7 @@ A huge part of developing this latest version has been condensing the many split
 
 Citing packages is one way for developers to gain some recognition for the time spent maintaining the work. I would like to keep track of how the package is used so that I can solicit feedback and improve the package more generally.  This would also help me track the uptake of reporting measurement reliability over time. 
 
-Please use the following reference: Parsons, S. (2017). splithalf: robust estimates of split half reliability
-  (Version 2). figshare. https://doi.org/10.6084/m9.figshare.5559175.v2
+Please use the following reference for the code: Parsons, S. (2017). splithalf: robust estimates of split half reliability (Version 4). figshare. https://doi.org/10.6084/m9.figshare.5559175.v4
   
 If (eventually) this documentation turns into a publication, this reference will change.
 
