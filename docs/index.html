@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html >
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>splithalf package documentation</title>
-  <meta name="description" content="This is the documentation for the splithalf package.">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta name="description" content="This is the documentation for the splithalf package." />
+  <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
 
   <meta property="og:title" content="splithalf package documentation" />
   <meta property="og:type" content="book" />
@@ -22,14 +21,14 @@
   <meta name="twitter:description" content="This is the documentation for the splithalf package." />
   
 
-<meta name="author" content="Sam Parsons">
+<meta name="author" content="Sam Parsons" />
 
 
-<meta name="date" content="2019-05-17">
+<meta name="date" content="2019-11-13" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
 
@@ -56,7 +55,6 @@ a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
 a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
@@ -181,31 +179,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="header">
 <h1 class="title">splithalf package documentation</h1>
 <p class="author"><em>Sam Parsons</em></p>
-<p class="date"><em>2019-05-17</em></p>
+<p class="date"><em>2019-11-13</em></p>
 </div>
 <div id="start-up-notes" class="section level1">
 <h1><span class="header-section-number">1</span> Start-up notes</h1>
 <div id="instalation" class="section level2">
 <h2><span class="header-section-number">1.1</span> Instalation</h2>
 <p>The <strong>splithalf</strong> package can be installed from CRAN or Github:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;splithalf&quot;</span>)
-<span class="co"># or the development version</span>
-<span class="co"># devtools::install_github(&quot;sdparsons/splithalf&quot;)</span></code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">install.packages</span>(<span class="st">&quot;splithalf&quot;</span>)</a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="co"># or the development version</span></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="co"># devtools::install_github(&quot;sdparsons/splithalf&quot;)</span></a></code></pre></div>
 <p>also note that the package requires the following; <em>tidyr</em>, <em>dplyr</em>, <em>Rcpp</em>, <em>robustbase</em>. You can load them with the following</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;tidyr&quot;</span>)
-<span class="kw">library</span>(<span class="st">&quot;dplyr&quot;</span>)
-<span class="kw">library</span>(<span class="st">&quot;Rcpp&quot;</span>)
-<span class="kw">library</span>(<span class="st">&quot;robustbase&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">library</span>(<span class="st">&quot;tidyr&quot;</span>)</a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="kw">library</span>(<span class="st">&quot;dplyr&quot;</span>)</a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="kw">library</span>(<span class="st">&quot;Rcpp&quot;</span>)</a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="kw">library</span>(<span class="st">&quot;robustbase&quot;</span>)</a></code></pre></div>
 </div>
 <div id="version-note" class="section level2">
 <h2><span class="header-section-number">1.2</span> Version note</h2>
-<p>The current version of <strong>splithalf</strong> is 0.5.2 [unofficial version name: “Fight Milk - rebrand”]</p>
+<p>The current version of <strong>splithalf</strong> is 0.5.3 [unofficial version name: “Fight Milk - rebrand”]</p>
 <p>A huge part of developing this latest version has been condensing the many splithalf functions into a single one. In addition to this, I have adapted the underlying code using the amazing Rcpp package <span class="citation">(Eddelbuettel et al. <a href="#ref-R-Rcpp">2018</a>)</span>, enabling me to input some C++ code. While my C++ code is rudimentary, the <em>splithalf</em> function now runs around 20x faster than before.</p>
 </div>
 <div id="citing-the-package" class="section level2">
 <h2><span class="header-section-number">1.3</span> Citing the package</h2>
 <p>Citing packages is one way for developers to gain some recognition for the time spent maintaining the work. I would like to keep track of how the package is used so that I can solicit feedback and improve the package more generally. This would also help me track the uptake of reporting measurement reliability over time.</p>
-<p>Please use the following reference for the code: Parsons, S. (2017). splithalf: robust estimates of split half reliability (Version 4). figshare. <a href="https://doi.org/10.6084/m9.figshare.5559175.v4" class="uri">https://doi.org/10.6084/m9.figshare.5559175.v4</a></p>
+<p>Please use the following reference for the code: Parsons, S. (2019). splithalf: robust estimates of split half reliability (Version 5). figshare. <a href="https://doi.org/10.6084/m9.figshare.5559175.v5" class="uri">https://doi.org/10.6084/m9.figshare.5559175.v5</a></p>
 <p>If (eventually) this documentation turns into a publication, this reference will change.</p>
 </div>
 <div id="user-feedback" class="section level2">

@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html >
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>4 Examples | splithalf package documentation</title>
-  <meta name="description" content="This is the documentation for the splithalf package.">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta name="description" content="This is the documentation for the splithalf package." />
+  <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
 
   <meta property="og:title" content="4 Examples | splithalf package documentation" />
   <meta property="og:type" content="book" />
@@ -22,14 +21,14 @@
   <meta name="twitter:description" content="This is the documentation for the splithalf package." />
   
 
-<meta name="author" content="Sam Parsons">
+<meta name="author" content="Sam Parsons" />
 
 
-<meta name="date" content="2019-05-17">
+<meta name="date" content="2019-11-13" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
 <link rel="prev" href="preprocessing.html">
@@ -56,7 +55,6 @@ a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
 a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
@@ -202,20 +200,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="our-example-dataset" class="section level2">
 <h2><span class="header-section-number">4.2</span> Our example dataset</h2>
 <p>For this quick example, we will simulate some data. Lets say we have 60 participants, who each complete a task with two blocks (A and B) of 80 trials. Trials are also evenly distributed between “congruent” and “incongruent” trials. For each trial we have RT data, and are assuming that participants were accurate in all trials.</p>
-<pre class="sourceCode r"><code class="sourceCode r">n_participants =<span class="st"> </span><span class="dv">60</span> <span class="co"># sample size</span>
-n_trials =<span class="st"> </span><span class="dv">80</span>
-n_blocks =<span class="st"> </span><span class="dv">2</span>
-
-sim_data &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">participant_number =</span> <span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span>n_participants, <span class="dt">each =</span> n_blocks <span class="op">*</span><span class="st"> </span>n_trials),
-                       <span class="dt">trial_number =</span> <span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span>n_trials, <span class="dt">times =</span> n_blocks <span class="op">*</span><span class="st"> </span>n_participants),
-                       <span class="dt">block_name =</span> <span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;B&quot;</span>), <span class="dt">each =</span> n_trials, <span class="dt">length.out =</span> n_participants <span class="op">*</span><span class="st"> </span>n_trials <span class="op">*</span><span class="st"> </span>n_blocks),
-                       <span class="dt">trial_type =</span> <span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;congruent&quot;</span>,<span class="st">&quot;incongruent&quot;</span>), <span class="dt">length.out =</span> n_participants <span class="op">*</span><span class="st"> </span>n_trials <span class="op">*</span><span class="st"> </span>n_blocks),
-                       <span class="dt">RT =</span> <span class="kw">rnorm</span>(n_participants <span class="op">*</span><span class="st"> </span>n_trials <span class="op">*</span><span class="st"> </span>n_blocks, <span class="dv">500</span>, <span class="dv">200</span>))</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1">n_participants =<span class="st"> </span><span class="dv">60</span> <span class="co"># sample size</span></a>
+<a class="sourceLine" id="cb6-2" title="2">n_trials =<span class="st"> </span><span class="dv">80</span></a>
+<a class="sourceLine" id="cb6-3" title="3">n_blocks =<span class="st"> </span><span class="dv">2</span></a>
+<a class="sourceLine" id="cb6-4" title="4"></a>
+<a class="sourceLine" id="cb6-5" title="5">sim_data &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">participant_number =</span> <span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span>n_participants, <span class="dt">each =</span> n_blocks <span class="op">*</span><span class="st"> </span>n_trials),</a>
+<a class="sourceLine" id="cb6-6" title="6">                       <span class="dt">trial_number =</span> <span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span>n_trials, <span class="dt">times =</span> n_blocks <span class="op">*</span><span class="st"> </span>n_participants),</a>
+<a class="sourceLine" id="cb6-7" title="7">                       <span class="dt">block_name =</span> <span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;B&quot;</span>), <span class="dt">each =</span> n_trials, <span class="dt">length.out =</span> n_participants <span class="op">*</span><span class="st"> </span>n_trials <span class="op">*</span><span class="st"> </span>n_blocks),</a>
+<a class="sourceLine" id="cb6-8" title="8">                       <span class="dt">trial_type =</span> <span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;congruent&quot;</span>,<span class="st">&quot;incongruent&quot;</span>), <span class="dt">length.out =</span> n_participants <span class="op">*</span><span class="st"> </span>n_trials <span class="op">*</span><span class="st"> </span>n_blocks),</a>
+<a class="sourceLine" id="cb6-9" title="9">                       <span class="dt">RT =</span> <span class="kw">rnorm</span>(n_participants <span class="op">*</span><span class="st"> </span>n_trials <span class="op">*</span><span class="st"> </span>n_blocks, <span class="dv">500</span>, <span class="dv">200</span>))</a></code></pre></div>
 </div>
 <div id="difference-scores" class="section level2">
 <h2><span class="header-section-number">4.3</span> Difference scores</h2>
 <p>This is by far the most common outcome measure I have come across, so lets start with that.</p>
 <p>Our data will be analysed so that we have two ‘bias’ or ‘difference score’ outcomes. So, within each block, we will take the average RT in congruent trials and subtract the average RT in incongruent trials. Calculating the final scores for each participant and for each block separately might look a bit like this</p>
+<pre><code>Warning: package &#39;tidyverse&#39; was built under R version 3.5.3</code></pre>
 <pre><code>Warning: package &#39;ggplot2&#39; was built under R version 3.5.3</code></pre>
 <pre><code>Warning: package &#39;tibble&#39; was built under R version 3.5.3</code></pre>
 <pre><code>Warning: package &#39;tidyr&#39; was built under R version 3.5.3</code></pre>
@@ -225,39 +224,39 @@ sim_data &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span 
 <pre><code>Warning: package &#39;forcats&#39; was built under R version 3.5.3</code></pre>
 <pre><code># A tibble: 120 x 5
 # Groups:   participant_number, block_name [120]
-   participant_number block_name congruent incongruent     bias
-                &lt;int&gt; &lt;fct&gt;          &lt;dbl&gt;       &lt;dbl&gt;    &lt;dbl&gt;
- 1                  1 A               403.        527. -124.   
- 2                  1 B               491.        478.   12.4  
- 3                  2 A               477.        478.   -1.13 
- 4                  2 B               524.        498.   26.6  
- 5                  3 A               475.        506.  -31.0  
- 6                  3 B               500.        499.    0.855
- 7                  4 A               444.        510.  -65.6  
- 8                  4 B               541.        511.   29.8  
- 9                  5 A               497.        484.   13.1  
-10                  5 B               466.        534.  -67.8  
+   participant_number block_name congruent incongruent   bias
+                &lt;int&gt; &lt;fct&gt;          &lt;dbl&gt;       &lt;dbl&gt;  &lt;dbl&gt;
+ 1                  1 A               493.        577. -84.6 
+ 2                  1 B               482.        502. -19.5 
+ 3                  2 A               485.        482.   3.17
+ 4                  2 B               457.        491. -33.5 
+ 5                  3 A               511.        515.  -3.85
+ 6                  3 B               471.        491. -19.5 
+ 7                  4 A               440.        494. -54.1 
+ 8                  4 B               539.        519.  19.4 
+ 9                  5 A               475.        455.  20.4 
+10                  5 B               471.        467.   3.99
 # ... with 110 more rows</code></pre>
 <p>ok, lets see how reliable our A and B outcome scores (“bias”) are.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;splithalf&quot;</span>)
-
-difference &lt;-<span class="st"> </span><span class="kw">splithalf</span>(<span class="dt">data =</span> sim_data,
-                        <span class="dt">outcome =</span> <span class="st">&quot;RT&quot;</span>,
-                        <span class="dt">score =</span> <span class="st">&quot;difference&quot;</span>,
-                        <span class="dt">conditionlist =</span> <span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>),
-                        <span class="dt">halftype =</span> <span class="st">&quot;random&quot;</span>,
-                        <span class="dt">permutations =</span> <span class="dv">5000</span>,
-                        <span class="dt">var.RT =</span> <span class="st">&quot;RT&quot;</span>,
-                        <span class="dt">var.condition =</span> <span class="st">&quot;block_name&quot;</span>,
-                        <span class="dt">var.participant =</span> <span class="st">&quot;participant_number&quot;</span>,
-                        <span class="dt">var.trialnum =</span> <span class="st">&quot;trial_number&quot;</span>,
-                        <span class="dt">var.compare =</span> <span class="st">&quot;trial_type&quot;</span>,
-                        <span class="dt">compare1 =</span> <span class="st">&quot;congruent&quot;</span>,
-                        <span class="dt">compare2 =</span> <span class="st">&quot;incongruent&quot;</span>,
-                        <span class="dt">average =</span> <span class="st">&quot;mean&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" title="1"><span class="kw">library</span>(<span class="st">&quot;splithalf&quot;</span>)</a>
+<a class="sourceLine" id="cb16-2" title="2"></a>
+<a class="sourceLine" id="cb16-3" title="3">difference &lt;-<span class="st"> </span><span class="kw">splithalf</span>(<span class="dt">data =</span> sim_data,</a>
+<a class="sourceLine" id="cb16-4" title="4">                        <span class="dt">outcome =</span> <span class="st">&quot;RT&quot;</span>,</a>
+<a class="sourceLine" id="cb16-5" title="5">                        <span class="dt">score =</span> <span class="st">&quot;difference&quot;</span>,</a>
+<a class="sourceLine" id="cb16-6" title="6">                        <span class="dt">conditionlist =</span> <span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>),</a>
+<a class="sourceLine" id="cb16-7" title="7">                        <span class="dt">halftype =</span> <span class="st">&quot;random&quot;</span>,</a>
+<a class="sourceLine" id="cb16-8" title="8">                        <span class="dt">permutations =</span> <span class="dv">5000</span>,</a>
+<a class="sourceLine" id="cb16-9" title="9">                        <span class="dt">var.RT =</span> <span class="st">&quot;RT&quot;</span>,</a>
+<a class="sourceLine" id="cb16-10" title="10">                        <span class="dt">var.condition =</span> <span class="st">&quot;block_name&quot;</span>,</a>
+<a class="sourceLine" id="cb16-11" title="11">                        <span class="dt">var.participant =</span> <span class="st">&quot;participant_number&quot;</span>,</a>
+<a class="sourceLine" id="cb16-12" title="12">                        <span class="dt">var.trialnum =</span> <span class="st">&quot;trial_number&quot;</span>,</a>
+<a class="sourceLine" id="cb16-13" title="13">                        <span class="dt">var.compare =</span> <span class="st">&quot;trial_type&quot;</span>,</a>
+<a class="sourceLine" id="cb16-14" title="14">                        <span class="dt">compare1 =</span> <span class="st">&quot;congruent&quot;</span>,</a>
+<a class="sourceLine" id="cb16-15" title="15">                        <span class="dt">compare2 =</span> <span class="st">&quot;incongruent&quot;</span>,</a>
+<a class="sourceLine" id="cb16-16" title="16">                        <span class="dt">average =</span> <span class="st">&quot;mean&quot;</span>)</a></code></pre></div>
 <pre><code>  condition  n splithalf 95_low 95_high spearmanbrown SB_low SB_high
-1         A 60      0.08  -0.09    0.26          0.14  -0.17    0.42
-2         B 60     -0.06  -0.23    0.13         -0.11  -0.38    0.23</code></pre>
+1         A 60      0.16   0.00    0.35          0.27  -0.01    0.51
+2         B 60     -0.32  -0.47   -0.14         -0.48  -0.64   -0.24</code></pre>
 <div id="reading-and-reporting-the-output" class="section level3">
 <h3><span class="header-section-number">4.3.1</span> Reading and reporting the output</h3>
 <p>The <em>splithalf</em> output gives estimates separately for each condition defined (if no condition is defined, the function assumes that you have only a single condition, which it will call “all” to represent that all trials were included).</p>
@@ -265,7 +264,7 @@ difference &lt;-<span class="st"> </span><span class="kw">splithalf</span>(<span
 <p>Next are the estimates; the splithalf column and the associated 95% percentile intervals, and the Spearman-Brown corrected estimate with its own percentile intervals. Unsurprisingly, our simlated random data does not yield internally consistant measurements.</p>
 <p><em>What should I report?</em> Ideally, report everything. I have included 95% percentiles of the estimates to give a picture of the spread of internal consistency estimates. Also included is the spearman-brown corrected estimates, which take into account that the estimates are drawn from half the trials that they could have been. Negative reliabilities are near uninterpretable and the spearman-brown formula is not useful in this case. For comparibility between studies I recommend reporting both the raw and the corrected estimates. Something like the following should be sufficient;</p>
 <blockquote>
-<p>We estimated the internal consitency of bias A and B using a permutation-based splithalf approach <span class="citation">(Parsons <a href="#ref-R-splithalf">2018</a>)</span> with 5000 random splits. The splithalf internal consistency of bias A was <em>r</em> = 0.08, 95%PI [-0.09,0.26] (Spearman-Brown corrected estimates were <em>r</em><sub>SB</sub> = 0.14, 95%PI [-0.17,0.42]).</p>
+<p>We estimated the internal consitency of bias A and B using a permutation-based splithalf approach <span class="citation">(Parsons <a href="#ref-R-splithalf">2018</a>)</span> with 5000 random splits. The splithalf internal consistency of bias A was <em>r</em> = 0.16, 95%PI [0,0.35] (Spearman-Brown corrected estimates were <em>r</em><sub>SB</sub> = 0.27, 95%PI [-0.01,0.51]).</p>
 <p>— Me, reporting reliability, just now</p>
 </blockquote>
 <p>Simples. I hope :)</p>
@@ -274,20 +273,20 @@ difference &lt;-<span class="st"> </span><span class="kw">splithalf</span>(<span
 <div id="average-scores" class="section level2">
 <h2><span class="header-section-number">4.4</span> Average scores</h2>
 <p>OK, lets change things up and look at average scores only. In this case, imagine that we have only a single trial type and we can then ignore the trial type option. We will want separate outcome scores for each block of trials, but this time it is simply the average RT in each block. Lets see how that looks within <em>splithalf</em>. Note that the main difference is that we have omitted the inputs about what trial types to ‘compare’, as this is irrelevant for the current task.</p>
-<pre class="sourceCode r"><code class="sourceCode r">average &lt;-<span class="st"> </span><span class="kw">splithalf</span>(<span class="dt">data =</span> sim_data,
-                     <span class="dt">outcome =</span> <span class="st">&quot;RT&quot;</span>,
-                     <span class="dt">score =</span> <span class="st">&quot;average&quot;</span>,
-                     <span class="dt">conditionlist =</span> <span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>),
-                     <span class="dt">halftype =</span> <span class="st">&quot;random&quot;</span>,
-                     <span class="dt">permutations =</span> <span class="dv">5000</span>,
-                     <span class="dt">var.RT =</span> <span class="st">&quot;RT&quot;</span>,
-                     <span class="dt">var.condition =</span> <span class="st">&quot;block_name&quot;</span>,
-                     <span class="dt">var.participant =</span> <span class="st">&quot;participant_number&quot;</span>,
-                     <span class="dt">var.trialnum =</span> <span class="st">&quot;trial_number&quot;</span>,
-                     <span class="dt">average =</span> <span class="st">&quot;mean&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" title="1">average &lt;-<span class="st"> </span><span class="kw">splithalf</span>(<span class="dt">data =</span> sim_data,</a>
+<a class="sourceLine" id="cb18-2" title="2">                     <span class="dt">outcome =</span> <span class="st">&quot;RT&quot;</span>,</a>
+<a class="sourceLine" id="cb18-3" title="3">                     <span class="dt">score =</span> <span class="st">&quot;average&quot;</span>,</a>
+<a class="sourceLine" id="cb18-4" title="4">                     <span class="dt">conditionlist =</span> <span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>),</a>
+<a class="sourceLine" id="cb18-5" title="5">                     <span class="dt">halftype =</span> <span class="st">&quot;random&quot;</span>,</a>
+<a class="sourceLine" id="cb18-6" title="6">                     <span class="dt">permutations =</span> <span class="dv">5000</span>,</a>
+<a class="sourceLine" id="cb18-7" title="7">                     <span class="dt">var.RT =</span> <span class="st">&quot;RT&quot;</span>,</a>
+<a class="sourceLine" id="cb18-8" title="8">                     <span class="dt">var.condition =</span> <span class="st">&quot;block_name&quot;</span>,</a>
+<a class="sourceLine" id="cb18-9" title="9">                     <span class="dt">var.participant =</span> <span class="st">&quot;participant_number&quot;</span>,</a>
+<a class="sourceLine" id="cb18-10" title="10">                     <span class="dt">var.trialnum =</span> <span class="st">&quot;trial_number&quot;</span>,</a>
+<a class="sourceLine" id="cb18-11" title="11">                     <span class="dt">average =</span> <span class="st">&quot;mean&quot;</span>)</a></code></pre></div>
 <pre><code>  condition  n splithalf 95_low 95_high spearmanbrown SB_low SB_high
-1         A 60     -0.20  -0.37   -0.01         -0.32  -0.54   -0.01
-2         B 60      0.03  -0.15    0.23          0.06  -0.26    0.37</code></pre>
+1         A 60     -0.02  -0.20    0.16         -0.04  -0.33    0.28
+2         B 60      0.03  -0.13    0.21          0.05  -0.23    0.35</code></pre>
 </div>
 <div id="difference-of-difference-scores" class="section level2">
 <h2><span class="header-section-number">4.5</span> Difference-of-difference scores</h2>
@@ -297,22 +296,22 @@ difference &lt;-<span class="st"> </span><span class="kw">splithalf</span>(<span
 <p>BiasB = incongruent_B - congruent_B</p>
 <p>Outcome = BiasB - BiasA</p>
 <p>In our function, we specify this very similarly as in the difference score example. The only change will be changing the score to “difference_of_difference” (largely because I could not think of a better name to use). Note that we will keep the condition list consisting of A and B. But, specifying that we are interested in the difference of differences will lead the function to calculate the outcome scores apropriately.</p>
-<pre class="sourceCode r"><code class="sourceCode r">diff_of_diff &lt;-<span class="st"> </span><span class="kw">splithalf</span>(<span class="dt">data =</span> sim_data,
-                        <span class="dt">outcome =</span> <span class="st">&quot;RT&quot;</span>,
-                        <span class="dt">score =</span> <span class="st">&quot;difference_of_difference&quot;</span>,
-                        <span class="dt">conditionlist =</span> <span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>),
-                        <span class="dt">halftype =</span> <span class="st">&quot;random&quot;</span>,
-                        <span class="dt">permutations =</span> <span class="dv">5000</span>,
-                        <span class="dt">var.RT =</span> <span class="st">&quot;RT&quot;</span>,
-                        <span class="dt">var.condition =</span> <span class="st">&quot;block_name&quot;</span>,
-                        <span class="dt">var.participant =</span> <span class="st">&quot;participant_number&quot;</span>,
-                        <span class="dt">var.trialnum =</span> <span class="st">&quot;trial_number&quot;</span>,
-                        <span class="dt">var.compare =</span> <span class="st">&quot;trial_type&quot;</span>,
-                        <span class="dt">compare1 =</span> <span class="st">&quot;congruent&quot;</span>,
-                        <span class="dt">compare2 =</span> <span class="st">&quot;incongruent&quot;</span>,
-                        <span class="dt">average =</span> <span class="st">&quot;mean&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" title="1">diff_of_diff &lt;-<span class="st"> </span><span class="kw">splithalf</span>(<span class="dt">data =</span> sim_data,</a>
+<a class="sourceLine" id="cb20-2" title="2">                        <span class="dt">outcome =</span> <span class="st">&quot;RT&quot;</span>,</a>
+<a class="sourceLine" id="cb20-3" title="3">                        <span class="dt">score =</span> <span class="st">&quot;difference_of_difference&quot;</span>,</a>
+<a class="sourceLine" id="cb20-4" title="4">                        <span class="dt">conditionlist =</span> <span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>),</a>
+<a class="sourceLine" id="cb20-5" title="5">                        <span class="dt">halftype =</span> <span class="st">&quot;random&quot;</span>,</a>
+<a class="sourceLine" id="cb20-6" title="6">                        <span class="dt">permutations =</span> <span class="dv">5000</span>,</a>
+<a class="sourceLine" id="cb20-7" title="7">                        <span class="dt">var.RT =</span> <span class="st">&quot;RT&quot;</span>,</a>
+<a class="sourceLine" id="cb20-8" title="8">                        <span class="dt">var.condition =</span> <span class="st">&quot;block_name&quot;</span>,</a>
+<a class="sourceLine" id="cb20-9" title="9">                        <span class="dt">var.participant =</span> <span class="st">&quot;participant_number&quot;</span>,</a>
+<a class="sourceLine" id="cb20-10" title="10">                        <span class="dt">var.trialnum =</span> <span class="st">&quot;trial_number&quot;</span>,</a>
+<a class="sourceLine" id="cb20-11" title="11">                        <span class="dt">var.compare =</span> <span class="st">&quot;trial_type&quot;</span>,</a>
+<a class="sourceLine" id="cb20-12" title="12">                        <span class="dt">compare1 =</span> <span class="st">&quot;congruent&quot;</span>,</a>
+<a class="sourceLine" id="cb20-13" title="13">                        <span class="dt">compare2 =</span> <span class="st">&quot;incongruent&quot;</span>,</a>
+<a class="sourceLine" id="cb20-14" title="14">                        <span class="dt">average =</span> <span class="st">&quot;mean&quot;</span>)</a></code></pre></div>
 <pre><code>     condition  n splithalf 95_low 95_high spearmanbrown SB_low SB_high
-1 change score 60      0.17      0    0.35          0.28      0    0.52</code></pre>
+1 change score 60      0.03  -0.14    0.22          0.05  -0.25    0.36</code></pre>
 <p>I do not forsee the difference_of_difference option being used often, but I will continue to maintain it.</p>
 
 </div>

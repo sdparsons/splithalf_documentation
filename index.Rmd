@@ -36,7 +36,7 @@ library("robustbase")
 
 ## Version note
 
-The current version of **splithalf** is 0.5.2 [unofficial version name: "Fight Milk - rebrand"]
+The current version of **splithalf** is 0.5.3 [unofficial version name: "Fight Milk - rebrand"]
 
 A huge part of developing this latest version has been condensing the many splithalf functions into a single one. In addition to this, I have adapted the underlying code using the amazing Rcpp package [@R-Rcpp], enabling me to input some C++ code. While my C++ code is rudimentary, the _splithalf_ function now runs around 20x faster than before. 
 
@@ -45,7 +45,7 @@ A huge part of developing this latest version has been condensing the many split
 
 Citing packages is one way for developers to gain some recognition for the time spent maintaining the work. I would like to keep track of how the package is used so that I can solicit feedback and improve the package more generally.  This would also help me track the uptake of reporting measurement reliability over time. 
 
-Please use the following reference for the code: Parsons, S. (2017). splithalf: robust estimates of split half reliability (Version 4). figshare. https://doi.org/10.6084/m9.figshare.5559175.v4
+Please use the following reference for the code: Parsons, S. (2019). splithalf: robust estimates of split half reliability (Version 5). figshare. https://doi.org/10.6084/m9.figshare.5559175.v5
   
 If (eventually) this documentation turns into a publication, this reference will change.
 
