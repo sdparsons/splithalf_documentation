@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>3 Preprocessing | splithalf package documentation</title>
   <meta name="description" content="This is the documentation for the splithalf package." />
-  <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
 
   <meta property="og:title" content="3 Preprocessing | splithalf package documentation" />
   <meta property="og:type" content="book" />
@@ -24,15 +24,15 @@
 <meta name="author" content="Sam Parsons" />
 
 
-<meta name="date" content="2019-11-13" />
+<meta name="date" content="2019-12-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="background.html">
-<link rel="next" href="examples.html">
+<link rel="prev" href="background.html"/>
+<link rel="next" href="examples.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -40,6 +40,9 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
 
 
 
@@ -52,7 +55,7 @@
 <style type="text/css">
 a.sourceLine { display: inline-block; line-height: 1.25; }
 a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
@@ -64,11 +67,13 @@ code.sourceCode { white-space: pre-wrap; }
 a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
 pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
 pre.numberSource a.sourceLine::before
-  { content: attr(title);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -183,30 +188,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>You might need to do a little pre-processing if you have not saved your processing steps. Here is a code snippet that will work (each line includes a note about what the code is doing after the hash).</p>
 <p>You will need to change the numbers to match your data. This code could be briefer, however has been structured like this for ease of use.</p>
 <p>Note == indicates ‘is equal to’, :: indicates that the function uses the package indicated, in the first case the <strong>dplyr</strong> package <span class="citation">(Wickham et al. <a href="#ref-R-dplyr">2018</a>)</span>.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1">dataset <span class="op">%&gt;%</span><span class="st">    </span></a>
-<a class="sourceLine" id="cb3-2" title="2"><span class="kw">filter</span>(accuracy <span class="op">==</span><span class="st"> </span><span class="dv">1</span>) <span class="op">%&gt;%</span><span class="st">       </span><span class="co"># keeps only trials in which participants made an accurate response</span></a>
-<a class="sourceLine" id="cb3-3" title="3"><span class="kw">filter</span>(RT <span class="op">&gt;=</span><span class="st"> </span><span class="dv">100</span>, RT <span class="op">&lt;=</span><span class="st"> </span><span class="dv">2000</span>)  <span class="op">%&gt;%</span><span class="st">   </span><span class="co"># removes RTs less than 100ms and greater than 2000ms</span></a>
-<a class="sourceLine" id="cb3-4" title="4"><span class="kw">filter</span>(participant <span class="op">!=</span><span class="st"> </span><span class="kw">c</span>(“p23”, “p45”)    <span class="co"># removes participants “p23” and “p45”</span></a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">dataset <span class="op">%&gt;%</span><span class="st">    </span></a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="kw">filter</span>(accuracy <span class="op">==</span><span class="st"> </span><span class="dv">1</span>) <span class="op">%&gt;%</span><span class="st">       </span><span class="co"># keeps only trials in which participants made an accurate response</span></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="kw">filter</span>(RT <span class="op">&gt;=</span><span class="st"> </span><span class="dv">100</span>, RT <span class="op">&lt;=</span><span class="st"> </span><span class="dv">2000</span>)  <span class="op">%&gt;%</span><span class="st">   </span><span class="co"># removes RTs less than 100ms and greater than 2000ms</span></a>
+<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="kw">filter</span>(participant <span class="op">!=</span><span class="st"> </span><span class="kw">c</span>(“p23”, “p45”)    <span class="co"># removes participants “p23” and “p45”</span></a></code></pre></div>
 <p>If following rt trims you also trimmed by SD, use the following as well. Note that this is for two standard deviations from the mean, within each participant, and within each condition and trialtype.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1">dataset <span class="op">%&gt;%</span><span class="st">    </span></a>
-<a class="sourceLine" id="cb4-2" title="2"><span class="st">    </span>dplyr<span class="op">::</span><span class="kw">group_by</span>(participant, condition, compare) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb4-3" title="3"><span class="st">    </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(<span class="dt">low =</span>  <span class="kw">mean</span>(RT) <span class="op">-</span><span class="st"> </span>(<span class="dv">2</span> <span class="op">*</span><span class="st"> </span><span class="kw">sd</span>(RT)),</a>
-<a class="sourceLine" id="cb4-4" title="4">                  <span class="dt">high =</span> <span class="kw">mean</span>(RT) <span class="op">+</span><span class="st"> </span>(<span class="dv">2</span> <span class="op">*</span><span class="st"> </span><span class="kw">sd</span>(RT))) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb4-5" title="5"><span class="st">    </span>dplyr<span class="op">::</span><span class="kw">filter</span>(RT <span class="op">&gt;=</span><span class="st"> </span>low <span class="op">&amp;</span><span class="st"> </span>RT <span class="op">&lt;=</span><span class="st"> </span>high)</a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">dataset <span class="op">%&gt;%</span><span class="st">    </span></a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="st">    </span>dplyr<span class="op">::</span><span class="kw">group_by</span>(participant, condition, compare) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="st">    </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(<span class="dt">low =</span>  <span class="kw">mean</span>(RT) <span class="op">-</span><span class="st"> </span>(<span class="dv">2</span> <span class="op">*</span><span class="st"> </span><span class="kw">sd</span>(RT)),</a>
+<a class="sourceLine" id="cb4-4" data-line-number="4">                  <span class="dt">high =</span> <span class="kw">mean</span>(RT) <span class="op">+</span><span class="st"> </span>(<span class="dv">2</span> <span class="op">*</span><span class="st"> </span><span class="kw">sd</span>(RT))) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="st">    </span>dplyr<span class="op">::</span><span class="kw">filter</span>(RT <span class="op">&gt;=</span><span class="st"> </span>low <span class="op">&amp;</span><span class="st"> </span>RT <span class="op">&lt;=</span><span class="st"> </span>high)</a></code></pre></div>
 <p>If you want to save yourself effort in running splithalf, you could also rename your variable (column) names to the function defaults using the following</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1">dplyr<span class="op">::</span><span class="kw">rename</span>(dataset,</a>
-<a class="sourceLine" id="cb5-2" title="2">              <span class="dt">RT =</span> <span class="st">&quot;latency&quot;</span>,</a>
-<a class="sourceLine" id="cb5-3" title="3">              <span class="dt">condition =</span> <span class="ot">FALSE</span>,</a>
-<a class="sourceLine" id="cb5-4" title="4">              <span class="dt">participant =</span> <span class="st">&quot;subject&quot;</span>,</a>
-<a class="sourceLine" id="cb5-5" title="5">              <span class="dt">correct =</span> <span class="st">&quot;correct&quot;</span>,</a>
-<a class="sourceLine" id="cb5-6" title="6">              <span class="dt">trialnum =</span> <span class="st">&quot;trialnum&quot;</span>,</a>
-<a class="sourceLine" id="cb5-7" title="7">              <span class="dt">compare =</span> <span class="st">&quot;congruency&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">dplyr<span class="op">::</span><span class="kw">rename</span>(dataset,</a>
+<a class="sourceLine" id="cb5-2" data-line-number="2">              <span class="dt">RT =</span> <span class="st">&quot;latency&quot;</span>,</a>
+<a class="sourceLine" id="cb5-3" data-line-number="3">              <span class="dt">condition =</span> <span class="ot">FALSE</span>,</a>
+<a class="sourceLine" id="cb5-4" data-line-number="4">              <span class="dt">participant =</span> <span class="st">&quot;subject&quot;</span>,</a>
+<a class="sourceLine" id="cb5-5" data-line-number="5">              <span class="dt">correct =</span> <span class="st">&quot;correct&quot;</span>,</a>
+<a class="sourceLine" id="cb5-6" data-line-number="6">              <span class="dt">trialnum =</span> <span class="st">&quot;trialnum&quot;</span>,</a>
+<a class="sourceLine" id="cb5-7" data-line-number="7">              <span class="dt">compare =</span> <span class="st">&quot;congruency&quot;</span>)</a></code></pre></div>
 
 </div>
 <h3>References</h3>
 <div id="refs" class="references">
 <div id="ref-R-dplyr">
-<p>Wickham, Hadley, Romain François, Lionel Henry, and Kirill Müller. 2018. <em>Dplyr: A Grammar of Data Manipulation</em>. <a href="https://CRAN.R-project.org/package=dplyr">https://CRAN.R-project.org/package=dplyr</a>.</p>
+<p>Wickham, Hadley, Romain François, Lionel Henry, and Kirill Müller. 2018. <em>Dplyr: A Grammar of Data Manipulation</em>. <a href="https://CRAN.R-project.org/package=dplyr" class="uri">https://CRAN.R-project.org/package=dplyr</a>.</p>
 </div>
 </div>
             </section>
@@ -220,11 +225,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({

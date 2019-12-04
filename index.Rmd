@@ -36,6 +36,8 @@ library("robustbase")
 
 ## Version note
 
+**WATCH THIS SPACE! VERSION 0.6.1 COMING SOON!** Featuring: plotting of estimates, a trial d prime outcome, and reliability multiverse analyses!!!
+
 The current version of **splithalf** is 0.5.3 [unofficial version name: "Fight Milk - rebrand"]
 
 A huge part of developing this latest version has been condensing the many splithalf functions into a single one. In addition to this, I have adapted the underlying code using the amazing Rcpp package [@R-Rcpp], enabling me to input some C++ code. While my C++ code is rudimentary, the _splithalf_ function now runs around 20x faster than before. 
