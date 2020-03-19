@@ -88,7 +88,7 @@ difference <- splithalf(data = sim_data,
 ```
 
 ```{r echo = FALSE, comment = NA}
-difference
+difference$final_estimates
 
 ```
 
@@ -103,7 +103,7 @@ Next are the estimates; the splithalf column and the associated 95% percentile i
 
 *What should I report?* Ideally, report everything. I have included 95% percentiles of the estimates to give a picture of the spread of internal consistency estimates. Also included is the spearman-brown corrected estimates, which take into account that the estimates are drawn from half the trials that they could have been. Negative reliabilities are near uninterpretable and the spearman-brown formula is not useful in this case. For comparibility between studies I recommend reporting both the raw and the corrected estimates. Something like the following should be sufficient; 
 
-> We estimated the internal consitency of bias A and B using a permutation-based splithalf approach [@R-splithalf] with 5000 random splits. The splithalf internal consistency of bias A was _r_ = `r difference$final_estimates[1,3]`, 95%PI [`r difference$final_estimates[1,4]`,`r difference$final_estimates[1,5]`] (Spearman-Brown corrected estimates were _r_~SB~ = `r difference$final_estimates[1,6]`, 95%PI [`r difference$final_estimates[1,7]`,`r difference$final_estimates[1,8]`]). 
+> We estimated the internal consitency of bias A and B using a permutation-based splithalf approach [@R-splithalf] with 5000 random splits. The (Spearman-Brown corrected) splithalf internal consistency of bias A was  were _r_~SB~ = `r difference$final_estimates[1,6]`, 95%CI [`r difference$final_estimates[1,7]`,`r difference$final_estimates[1,8]`]. 
 >
 > --- Me, reporting reliability, just now
 
@@ -124,13 +124,12 @@ average <- splithalf(data = sim_data,
                      var.RT = "RT",
                      var.condition = "block_name",
                      var.participant = "participant_number",
-                     var.trialnum = "trial_number",
                      average = "mean")
 
 ```
 
 ```{r echo = FALSE, comment = NA}
-average
+average$final_estimates
 
 ```
 
@@ -162,7 +161,6 @@ diff_of_diff <- splithalf(data = sim_data,
                         var.RT = "RT",
                         var.condition = "block_name",
                         var.participant = "participant_number",
-                        var.trialnum = "trial_number",
                         var.compare = "trial_type",
                         compare1 = "congruent",
                         compare2 = "incongruent",
@@ -172,7 +170,7 @@ diff_of_diff <- splithalf(data = sim_data,
 ```
 
 ```{r echo = FALSE, comment = NA}
-diff_of_diff
+diff_of_diff$final_estimates
 
 ```
 

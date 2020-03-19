@@ -24,7 +24,7 @@
 <meta name="author" content="Sam Parsons" />
 
 
-<meta name="date" content="2020-03-18" />
+<meta name="date" content="2020-03-19" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -191,28 +191,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="how-fast-is-splithalf" class="section level2">
 <h2><span class="header-section-number">5.2</span> how fast is <em>splithalf</em>?</h2>
 <p>The quick answer is, it depends. The biggest factor will be your machine speed. For relative times, I ran a simulation with a range of sample sizes, numbers of conditions, numbers of trials, and permutations. I’ll analyse this properly at a later date, but hopefully this visualisation is a useful demonstration of the relative processing times.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1">speed &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;speedtestdata.csv&quot;</span>)</a>
-<a class="sourceLine" id="cb14-2" data-line-number="2">speed &lt;-<span class="st"> </span>speed <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb14-3" data-line-number="3"><span class="st">  </span><span class="kw">rename</span>(<span class="dt">Sim =</span> X,</a>
-<a class="sourceLine" id="cb14-4" data-line-number="4">         <span class="dt">sample_size =</span> V1,</a>
-<a class="sourceLine" id="cb14-5" data-line-number="5">         <span class="dt">Number_conditions =</span> V2,</a>
-<a class="sourceLine" id="cb14-6" data-line-number="6">         <span class="dt">trials =</span> V3,</a>
-<a class="sourceLine" id="cb14-7" data-line-number="7">         <span class="dt">permutations =</span> V4,</a>
-<a class="sourceLine" id="cb14-8" data-line-number="8">         <span class="dt">runtime =</span> V5)</a>
-<a class="sourceLine" id="cb14-9" data-line-number="9"></a>
-<a class="sourceLine" id="cb14-10" data-line-number="10">speed2 &lt;-<span class="st"> </span>speed</a>
-<a class="sourceLine" id="cb14-11" data-line-number="11"></a>
-<a class="sourceLine" id="cb14-12" data-line-number="12">speed2<span class="op">$</span>sample_size &lt;-<span class="st"> </span><span class="kw">as.factor</span>(speed2<span class="op">$</span>sample_size)</a>
-<a class="sourceLine" id="cb14-13" data-line-number="13">speed2<span class="op">$</span>Number_conditions &lt;-<span class="st"> </span><span class="kw">as.factor</span>(speed2<span class="op">$</span>Number_conditions)</a>
-<a class="sourceLine" id="cb14-14" data-line-number="14">speed2<span class="op">$</span>trials &lt;-<span class="st"> </span><span class="kw">as.factor</span>(speed2<span class="op">$</span>trials)</a>
-<a class="sourceLine" id="cb14-15" data-line-number="15">speed2<span class="op">$</span>permutations &lt;-<span class="st"> </span><span class="kw">as.factor</span>(speed2<span class="op">$</span>permutations)</a>
-<a class="sourceLine" id="cb14-16" data-line-number="16"></a>
-<a class="sourceLine" id="cb14-17" data-line-number="17"></a>
-<a class="sourceLine" id="cb14-18" data-line-number="18"><span class="kw">ggplot</span>(<span class="dt">data =</span> speed2, </a>
-<a class="sourceLine" id="cb14-19" data-line-number="19">       <span class="kw">aes</span>(<span class="dt">x =</span> permutations, <span class="dt">y =</span> runtime, <span class="dt">colour =</span> sample_size, <span class="dt">shape =</span> trials, <span class="dt">group =</span> <span class="kw">interaction</span>(trials, sample_size))) <span class="op">+</span></a>
-<a class="sourceLine" id="cb14-20" data-line-number="20"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">3</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb14-21" data-line-number="21"><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb14-22" data-line-number="22"><span class="st">  </span><span class="kw">facet_grid</span>(. <span class="op">~</span><span class="st"> </span>Number_conditions)</a></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1">speed &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;speedtestdata.csv&quot;</span>)</a>
+<a class="sourceLine" id="cb15-2" data-line-number="2">speed &lt;-<span class="st"> </span>speed <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb15-3" data-line-number="3"><span class="st">  </span><span class="kw">rename</span>(<span class="dt">Sim =</span> X,</a>
+<a class="sourceLine" id="cb15-4" data-line-number="4">         <span class="dt">sample_size =</span> V1,</a>
+<a class="sourceLine" id="cb15-5" data-line-number="5">         <span class="dt">Number_conditions =</span> V2,</a>
+<a class="sourceLine" id="cb15-6" data-line-number="6">         <span class="dt">trials =</span> V3,</a>
+<a class="sourceLine" id="cb15-7" data-line-number="7">         <span class="dt">permutations =</span> V4,</a>
+<a class="sourceLine" id="cb15-8" data-line-number="8">         <span class="dt">runtime =</span> V5)</a>
+<a class="sourceLine" id="cb15-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb15-10" data-line-number="10">speed2 &lt;-<span class="st"> </span>speed</a>
+<a class="sourceLine" id="cb15-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb15-12" data-line-number="12">speed2<span class="op">$</span>sample_size &lt;-<span class="st"> </span><span class="kw">as.factor</span>(speed2<span class="op">$</span>sample_size)</a>
+<a class="sourceLine" id="cb15-13" data-line-number="13">speed2<span class="op">$</span>Number_conditions &lt;-<span class="st"> </span><span class="kw">as.factor</span>(speed2<span class="op">$</span>Number_conditions)</a>
+<a class="sourceLine" id="cb15-14" data-line-number="14">speed2<span class="op">$</span>trials &lt;-<span class="st"> </span><span class="kw">as.factor</span>(speed2<span class="op">$</span>trials)</a>
+<a class="sourceLine" id="cb15-15" data-line-number="15">speed2<span class="op">$</span>permutations &lt;-<span class="st"> </span><span class="kw">as.factor</span>(speed2<span class="op">$</span>permutations)</a>
+<a class="sourceLine" id="cb15-16" data-line-number="16"></a>
+<a class="sourceLine" id="cb15-17" data-line-number="17"></a>
+<a class="sourceLine" id="cb15-18" data-line-number="18"><span class="kw">ggplot</span>(<span class="dt">data =</span> speed2, </a>
+<a class="sourceLine" id="cb15-19" data-line-number="19">       <span class="kw">aes</span>(<span class="dt">x =</span> permutations, <span class="dt">y =</span> runtime, <span class="dt">colour =</span> sample_size, <span class="dt">shape =</span> trials, <span class="dt">group =</span> <span class="kw">interaction</span>(trials, sample_size))) <span class="op">+</span></a>
+<a class="sourceLine" id="cb15-20" data-line-number="20"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">3</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb15-21" data-line-number="21"><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb15-22" data-line-number="22"><span class="st">  </span><span class="kw">facet_grid</span>(. <span class="op">~</span><span class="st"> </span>Number_conditions)</a></code></pre></div>
 <p><img src="splithalf_documentation_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
 
 </div>

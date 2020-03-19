@@ -24,7 +24,7 @@
 <meta name="author" content="Sam Parsons" />
 
 
-<meta name="date" content="2020-03-18" />
+<meta name="date" content="2020-03-19" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -188,24 +188,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>You might need to do a little pre-processing if you have not saved your processing steps. Here is a code snippet that will work (each line includes a note about what the code is doing after the hash).</p>
 <p>You will need to change the numbers to match your data. This code could be briefer, however has been structured like this for ease of use.</p>
 <p>Note == indicates ‘is equal to’, :: indicates that the function uses the package indicated, in the first case the <strong>dplyr</strong> package <span class="citation">(Wickham et al. <a href="#ref-R-dplyr">2018</a>)</span>.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">dataset <span class="op">%&gt;%</span><span class="st">    </span></a>
-<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="kw">filter</span>(accuracy <span class="op">==</span><span class="st"> </span><span class="dv">1</span>) <span class="op">%&gt;%</span><span class="st">       </span><span class="co"># keeps only trials in which participants made an accurate response</span></a>
-<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="kw">filter</span>(RT <span class="op">&gt;=</span><span class="st"> </span><span class="dv">100</span>, RT <span class="op">&lt;=</span><span class="st"> </span><span class="dv">2000</span>)  <span class="op">%&gt;%</span><span class="st">   </span><span class="co"># removes RTs less than 100ms and greater than 2000ms</span></a>
-<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="kw">filter</span>(participant <span class="op">!=</span><span class="st"> </span><span class="kw">c</span>(“p23”, “p45”)    <span class="co"># removes participants “p23” and “p45”</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">dataset <span class="op">%&gt;%</span><span class="st">    </span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="kw">filter</span>(accuracy <span class="op">==</span><span class="st"> </span><span class="dv">1</span>) <span class="op">%&gt;%</span><span class="st">       </span><span class="co"># keeps only trials in which participants made an accurate response</span></a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="kw">filter</span>(RT <span class="op">&gt;=</span><span class="st"> </span><span class="dv">100</span>, RT <span class="op">&lt;=</span><span class="st"> </span><span class="dv">2000</span>)  <span class="op">%&gt;%</span><span class="st">   </span><span class="co"># removes RTs less than 100ms and greater than 2000ms</span></a>
+<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="kw">filter</span>(participant <span class="op">!=</span><span class="st"> </span><span class="kw">c</span>(“p23”, “p45”)    <span class="co"># removes participants “p23” and “p45”</span></a></code></pre></div>
 <p>If following rt trims you also trimmed by SD, use the following as well. Note that this is for two standard deviations from the mean, within each participant, and within each condition and trialtype.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">dataset <span class="op">%&gt;%</span><span class="st">    </span></a>
-<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="st">    </span>dplyr<span class="op">::</span><span class="kw">group_by</span>(participant, condition, compare) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="st">    </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(<span class="dt">low =</span>  <span class="kw">mean</span>(RT) <span class="op">-</span><span class="st"> </span>(<span class="dv">2</span> <span class="op">*</span><span class="st"> </span><span class="kw">sd</span>(RT)),</a>
-<a class="sourceLine" id="cb4-4" data-line-number="4">                  <span class="dt">high =</span> <span class="kw">mean</span>(RT) <span class="op">+</span><span class="st"> </span>(<span class="dv">2</span> <span class="op">*</span><span class="st"> </span><span class="kw">sd</span>(RT))) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="st">    </span>dplyr<span class="op">::</span><span class="kw">filter</span>(RT <span class="op">&gt;=</span><span class="st"> </span>low <span class="op">&amp;</span><span class="st"> </span>RT <span class="op">&lt;=</span><span class="st"> </span>high)</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">dataset <span class="op">%&gt;%</span><span class="st">    </span></a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="st">    </span>dplyr<span class="op">::</span><span class="kw">group_by</span>(participant, condition, compare) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="st">    </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(<span class="dt">low =</span>  <span class="kw">mean</span>(RT) <span class="op">-</span><span class="st"> </span>(<span class="dv">2</span> <span class="op">*</span><span class="st"> </span><span class="kw">sd</span>(RT)),</a>
+<a class="sourceLine" id="cb3-4" data-line-number="4">                  <span class="dt">high =</span> <span class="kw">mean</span>(RT) <span class="op">+</span><span class="st"> </span>(<span class="dv">2</span> <span class="op">*</span><span class="st"> </span><span class="kw">sd</span>(RT))) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="st">    </span>dplyr<span class="op">::</span><span class="kw">filter</span>(RT <span class="op">&gt;=</span><span class="st"> </span>low <span class="op">&amp;</span><span class="st"> </span>RT <span class="op">&lt;=</span><span class="st"> </span>high)</a></code></pre></div>
 <p>If you want to save yourself effort in running splithalf, you could also rename your variable (column) names to the function defaults using the following</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">dplyr<span class="op">::</span><span class="kw">rename</span>(dataset,</a>
-<a class="sourceLine" id="cb5-2" data-line-number="2">              <span class="dt">RT =</span> <span class="st">&quot;latency&quot;</span>,</a>
-<a class="sourceLine" id="cb5-3" data-line-number="3">              <span class="dt">condition =</span> <span class="ot">FALSE</span>,</a>
-<a class="sourceLine" id="cb5-4" data-line-number="4">              <span class="dt">participant =</span> <span class="st">&quot;subject&quot;</span>,</a>
-<a class="sourceLine" id="cb5-5" data-line-number="5">              <span class="dt">correct =</span> <span class="st">&quot;correct&quot;</span>,</a>
-<a class="sourceLine" id="cb5-6" data-line-number="6">              <span class="dt">trialnum =</span> <span class="st">&quot;trialnum&quot;</span>,</a>
-<a class="sourceLine" id="cb5-7" data-line-number="7">              <span class="dt">compare =</span> <span class="st">&quot;congruency&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">dplyr<span class="op">::</span><span class="kw">rename</span>(dataset,</a>
+<a class="sourceLine" id="cb4-2" data-line-number="2">              <span class="dt">RT =</span> <span class="st">&quot;latency&quot;</span>,</a>
+<a class="sourceLine" id="cb4-3" data-line-number="3">              <span class="dt">condition =</span> <span class="ot">FALSE</span>,</a>
+<a class="sourceLine" id="cb4-4" data-line-number="4">              <span class="dt">participant =</span> <span class="st">&quot;subject&quot;</span>,</a>
+<a class="sourceLine" id="cb4-5" data-line-number="5">              <span class="dt">correct =</span> <span class="st">&quot;correct&quot;</span>,</a>
+<a class="sourceLine" id="cb4-6" data-line-number="6">              <span class="dt">trialnum =</span> <span class="st">&quot;trialnum&quot;</span>,</a>
+<a class="sourceLine" id="cb4-7" data-line-number="7">              <span class="dt">compare =</span> <span class="st">&quot;congruency&quot;</span>)</a></code></pre></div>
 
 </div>
 <h3>References</h3>

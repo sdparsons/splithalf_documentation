@@ -3,13 +3,13 @@
 
 ## Why should I estimate the reliabilty of my task measurement?
 
-For my full argument, see ou preprint [@parsons_kruijt_fox_2018]. In short, the psychometric properties of our measurements are important and should be taken into consideration when conducting our analyses and interpreting our results. I think it should be standard practice to estimate and report reliability of our tasks. To not do so renders us incapable of knowing how much confidence we can place in results. If the replication crisis was a big deal, the measurement crisis has the potential to be as if not more catastrophic. 
+For my full argument, see our preprint [@parsons_kruijt_fox_2019]. In short, the psychometric properties of our measurements are important and should be taken into consideration when conducting our analyses and interpreting our results. I think it should be standard practice to estimate and report reliability of our tasks. To not do so renders us incapable of knowing how much confidence we can place in results. If the replication crisis was a big deal, the measurement crisis has the potential to be as if not more catastrophic. 
 
 ## Why did I develop this package in the first place?
 
 Long story short-ish. I had some dot-probe attention bias data pre- and post- an attention bias modification procedure. In an exploratory analysis the post-training bias, but not the pre-training bias, was associated with self-report measures at follow-up. I think on a whim, we looked at how reliable the measures were pre/post and the post-training measure was much more reliable (~ .7) than the pre-training bias measure (~ .4). This led me down the road of wanting to understand reliability; what it 'means', how it impacts our results, the interesting reliability-power relationship, and so on. It also led me to the realisation (shared with many others), that we should estimate and report the reliability of our measures as standard practice. That has become my quest (albeit, it's not what I am actualy paid to do), taking two main forms.
 
-1. I wrote a paper with my DPhil supervisors [@parsons_kruijt_fox_2018], that I hope will be out in AMPPS soon (after revisions); the message being that we should adopt reporting reliabilty as a standard practice. 
+1. I wrote a paper with my DPhil supervisors [@parsons_kruijt_fox_2019], that I hope will be out in AMPPS soon (after revisions); the message being that we should adopt reporting reliabilty as a standard practice. 
 
 2. I developed the _splithalf_ package with the aim to provide an easy to use tool to estimate internal consistency of bias measures (difference scores) drawn from cognitive tasks. 
 
